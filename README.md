@@ -96,6 +96,6 @@ O uso contra sistemas sem autorização pode violar leis locais.
 
 ## 👨‍💻 Autor
 
-Projeto RedScan Academy - Carlos Tuma - Bl4sc4n
+Projeto RedScan Academy - Carlos Tuma - Bl4dsc4n
 
 Ferramenta desenvolvida para automação de processos de **reconhecimento e análise de superfície de ataque**.
