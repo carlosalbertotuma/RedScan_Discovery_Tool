@@ -82,7 +82,8 @@ Funcionalidades planejadas:
 
 ---
 
-<img width="945" height="1306" alt="image" src="https://github.com/user-attachments/assets/2c85f4d0-cde9-4d57-a422-2aad9d0a0389" />
+<img width="668" height="1164" alt="image" src="https://github.com/user-attachments/assets/1af9b1e0-2885-4492-b29d-3111456644a6" />
+
 
 
 ----
