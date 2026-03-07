@@ -1,4 +1,4 @@
-# RedScan_Discovery_Tool
+# RedScan Discovery Tool
 
 RedScan Discovery é uma ferramenta de reconhecimento e automação de coleta de informações desenvolvida para profissionais de segurança, pesquisadores de bug bounty e analistas de OSINT.
 
