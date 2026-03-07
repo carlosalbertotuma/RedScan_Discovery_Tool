@@ -43,7 +43,9 @@ Novas ferramentas podem ser adicionadas facilmente através de configuração no
 ### 2️⃣ Executar container
 
 ```bash
-docker run --name redscan -d -it -p 3002:3000 bladscan/redscan_discovery
+sudo apt update && sudo apt install docker.io -y
+sudo service docker start
+sudo docker run --name redscan -d -it -p 3002:3000 bladscan/redscan_discovery
 ```
 
 A aplicação ficará disponível em:
