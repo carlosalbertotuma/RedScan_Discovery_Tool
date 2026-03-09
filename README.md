@@ -43,6 +43,16 @@ Novas ferramentas podem ser adicionadas facilmente através de configuração no
 ### 2️⃣ Executar container
 
 ```bash
+curl -s https://raw.githubusercontent.com/carlosalbertotuma/RedScan_Discovery_Tool/main/install_redscan.sh | sudo bash
+
+ou baixar e dar permissão execução, executar como root.
+
+chmod +x install.sh
+sudo ./install.sh
+
+```
+
+```bash
 sudo apt update && sudo apt install docker.io -y
 sudo service docker start
 sudo docker run --name redscan -d -it -p 3002:3000 bladscan/redscan_discovery
@@ -81,6 +91,10 @@ Funcionalidades planejadas:
 * exportação de relatórios
 
 ---
+
+<img width="1420" height="446" alt="image" src="https://github.com/user-attachments/assets/f216c11e-0bc4-4943-9aa3-caa8d2f9fcd5" />
+
+
 
 <img width="668" height="1164" alt="image" src="https://github.com/user-attachments/assets/1af9b1e0-2885-4492-b29d-3111456644a6" />
 
