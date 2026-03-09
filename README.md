@@ -45,7 +45,7 @@ Novas ferramentas podem ser adicionadas facilmente através de configuração no
 - Forma de intalar 1
 
 ```bash
-curl -s https://raw.githubusercontent.com/carlosalbertotuma/RedScan_Discovery_Tool/main/install_redscan.sh | sudo bash
+curl -s https://raw.githubusercontent.com/carlosalbertotuma/RedScan_Discovery_Tool/refs/heads/main/install.sh | sudo bash
 
 ou baixar e dar permissão execução, executar como root.
 
