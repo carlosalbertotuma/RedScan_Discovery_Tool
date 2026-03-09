@@ -42,6 +42,8 @@ Novas ferramentas podem ser adicionadas facilmente através de configuração no
 
 ### 2️⃣ Executar container
 
+- Forma de intalar 1
+
 ```bash
 curl -s https://raw.githubusercontent.com/carlosalbertotuma/RedScan_Discovery_Tool/main/install_redscan.sh | sudo bash
 
@@ -51,6 +53,8 @@ chmod +x install.sh
 sudo ./install.sh
 
 ```
+
+- Forma de intalar 2
 
 ```bash
 sudo apt update && sudo apt install docker.io -y
