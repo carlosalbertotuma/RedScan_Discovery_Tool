@@ -31,9 +31,10 @@ Centralizar ferramentas de **reconhecimento de infraestrutura e serviços expost
 
 A plataforma foi projetada para integrar diversas ferramentas de reconhecimento:
 
-* httpx
 * subfinder
-* shodan 
+* API shodan
+* Fontes OSINT
+* APIs do Subfinder integrada 
   
 
 Novas ferramentas podem ser adicionadas facilmente através de configuração no backend.
