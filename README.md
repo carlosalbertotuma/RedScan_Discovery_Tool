@@ -99,7 +99,7 @@ Funcionalidades planejadas:
 
 <img width="1420" height="446" alt="image" src="https://github.com/user-attachments/assets/f216c11e-0bc4-4943-9aa3-caa8d2f9fcd5" />
 
-
+---
 
 <img width="668" height="1164" alt="image" src="https://github.com/user-attachments/assets/1af9b1e0-2885-4492-b29d-3111456644a6" />
 
