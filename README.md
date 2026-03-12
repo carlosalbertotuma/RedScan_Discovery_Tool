@@ -1,8 +1,17 @@
 # RedScan Discovery Tool
 
-RedScan Discovery é uma ferramenta de reconhecimento e automação de coleta de informações desenvolvida para profissionais de segurança, pesquisadores de bug bounty e analistas de OSINT.
+RedScan Discovery Tool é uma interface web para discovery e reconnaissance em testes de segurança, projetada para facilitar a coleta de informações sobre alvos.
 
-A plataforma disponibiliza uma interface web intuitiva que permite executar diversas ferramentas de recon e discovery de forma centralizada, diretamente a partir de um container baseado em Kali Linux, facilitando a coleta, organização e análise de informações durante as fases iniciais de testes de segurança.
+A ferramenta centraliza diversas técnicas utilizadas em pentest, bug bounty e OSINT, permitindo executar rapidamente:
+
+- Reconhecimento de hosts
+- Enumeração de subdomínios
+- Coleta de headers HTTP
+- Identificação de servidores
+- Favicon hash
+- Resolução DNS
+- Integração com APIs OSINT
+- Tudo em uma única interface.
 
 ---
 
@@ -106,13 +115,279 @@ Funcionalidades planejadas:
 
 
 ----
+# Features
+
+## Target Discovery
+
+A ferramenta suporta **scan de múltiplos targets** simultaneamente.
+
+É possível importar listas contendo diversos tipos de alvos.
+
+### Importação de lista
+
+Suporte para arquivos:
+
+- `.txt`
+- `.csv`
+
+### Tipos de targets suportados
+
+A ferramenta aceita diversos formatos de entrada:
+
+- Domínios
+- Endereços IP
+- URLs completas
+- Hosts com portas específicas
+
+### Exemplo de entrada
+```
+example.com
+192.168.1.10:8080
+https://intranet.local
+```
+
+---
+
+# Subdomain Enumeration
+
+A ferramenta permite **descobrir subdomínios automaticamente**.
+
+Existem dois métodos principais:
+
+- Brute Force
+- OSINT Enumeration
+
+---
+
+## Brute Force
+
+Utiliza **wordlists para descobrir subdomínios** tentando diferentes combinações.
+
+### Funcionamento
+
+A ferramenta testa diversas entradas como:
+```
+admin.example.com
+dev.example.com
+api.example.com
+vpn.example.com
+```
+
+### Requisito
+
+É necessário fornecer uma **wordlist no formato `.txt`** contendo possíveis subdomínios.
+
+Exemplo de wordlist:
+```
+admin
+dev
+api
+vpn
+mail
+portal
+intranet
+```
+
+---
+
+# OSINT Enumeration
+
+Enumeração baseada em **fontes públicas de inteligência (OSINT)**.
+
+A ferramenta consulta serviços externos que coletam informações de DNS, certificados e infraestrutura.
+
+### Serviços suportados
+
+- subfinder
+- crt.sh
+- bufferover
+- chaos
+- shodan
+- rapidns
+- nubis
+- certspotter
+
+### Como ativar
+
+Quando ativado, a ferramenta coleta subdomínios de diversas fontes públicas.
+
+---
+
+# Scan Options
+
+As **opções de scan** controlam o comportamento do scanner HTTP.
+
+### Exemplo de configuração padrão
 
 
+### Explicação das flags
+
+| Flag | Descrição |
+|-----|-----|
+| `-sc` | Retorna o **status code** da resposta HTTP |
+| `-title` | Extrai o **título da página** |
+| `-server` | Mostra o **header Server** |
+| `-rt` | Mede o **tempo de resposta** |
+| `-timeout` | Define o **timeout da requisição** |
+| `-t` | Número de **threads concorrentes** |
+| `-rl` | **Rate limit** de requisições |
+
+---
+
+# Probes
+
+As **probes** permitem coletar diversas informações HTTP durante o scan.
+
+### Opções disponíveis
+
+| Opção | Descrição |
+|-----|-----|
+| `-sc` | Status code |
+| `-cl` | Content length |
+| `-ct` | Content type |
+| `-location` | Redirect |
+| `-title` | Page title |
+| `-server` | Header server |
+| `-rt` | Response time |
+| `-method` | Método HTTP |
+| `-ip` | IP resolvido |
+| `-cname` | Registro CNAME |
+| `-favicon` | Hash do favicon |
+| `-hash` | Hash da resposta |
+| `-bp` | Preview do body |
+
+---
+
+# Request / Performance
+
+Configurações avançadas para controle das requisições HTTP.
+
+| Opção | Descrição |
+|-----|-----|
+| `-H` | Header customizado |
+| `-body` | Corpo da requisição |
+| `-maxr` | Número máximo de redirects |
+| `-timeout` | Timeout da requisição |
+| `-x` | Excluir códigos de status |
+
+---
+
+# Quick Presets
+
+A ferramenta possui **atalhos de configuração rápida** para scans comuns.
+
+| Preset | Função |
+|-----|-----|
+| Web Quick | Scan HTTP rápido |
+| Headers Quick | Coleta de headers |
+| DNS Quick | Informações DNS |
+| Favicon Quick | Hash do favicon |
+| Hash Quick | Hash de conteúdo |
+
+---
+
+# Results
+
+Os resultados são exibidos em **formato de tabela**.
+
+### Campos disponíveis
+
+| Campo | Descrição |
+|-----|-----|
+| URL | Host testado |
+| Status | Status code |
+| RT | Response time |
+| Len | Content length |
+| Type | Content type |
+| Server | Header server |
+| Title | Title da página |
+| IP | IP resolvido |
+| CNAME | Registro CNAME |
+| Location | Redirect |
+| Favicon | Hash do favicon |
+| Hash | Hash do conteúdo |
+| Error | Erros encontrados |
+
+---
+
+# Export
+
+Os resultados podem ser exportados em diferentes formatos.
+
+### Formatos suportados
+
+- JSON
+- CSV
+
+Isso permite integração com:
+
+- ferramentas de análise
+- scripts
+- pipelines de segurança
+
+---
+
+# Shodan Module
+
+A ferramenta possui **integração direta com a API do Shodan**.
+
+Isso permite realizar consultas avançadas de infraestrutura.
+
+### Tipos de consulta
+
+| Query | Descrição |
+|-----|-----|
+| `host` | Informações detalhadas de um host |
+| `dns-domain` | DNS relacionado a um domínio |
+| `dns-resolve` | Resolver domínio para IP |
+| `dns-reverse` | Reverse DNS |
+| `search` | Busca geral no Shodan |
+| `dorks` | Dorks do Shodan |
+
+---
+
+# API Keys
+
+A ferramenta suporta **integração com diversas APIs OSINT**.
+
+As chaves podem ser configuradas na seção:
+
+API Keys
+
+
+### Serviços suportados
+
+| Serviço |
+|-----|
+| Chaos |
+| Shodan |
+| VirusTotal |
+| SecurityTrails |
+| Censys |
+| FOFA |
+| GitHub |
+
+Após inserir as chaves, clique em:
+
+
+-----
 ## ⚠️ Aviso Legal
 
-Esta ferramenta foi criada para **uso educacional, pesquisa de segurança e testes autorizados**.
+Esta ferramenta deve ser utilizada **apenas em ambientes autorizados**.
 
-O uso contra sistemas sem autorização pode violar leis locais.
+O uso sem permissão pode violar:
+
+- leis locais
+- políticas de segurança
+- termos de serviço de plataformas
+
+O autor **não se responsabiliza por qualquer uso indevido da ferramenta**.
+
+Utilize apenas para:
+
+- **pesquisa de segurança**
+- **pentests autorizados**
+- **programas de bug bounty**
 
 ---
 
